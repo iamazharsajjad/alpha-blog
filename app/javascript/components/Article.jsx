@@ -1,5 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
+import Timestamp from "react-timestamp"
+
 class Article extends React.Component {
   render () {
     return (
@@ -11,8 +13,12 @@ class Article extends React.Component {
         <div className="article-body">
           {this.props.description}
           <div className="article-meta-details">
-            <small>Created by: { this.props.article }, {this.props.created_at) %>} ago,
-                  last updated: { this.props.updated_at)} ago</small>  
+            <small>
+              Created by: { this.props.article },
+              &nbsp;
+              <Timestamp time={this.props.created_at)} precision{3}/>,
+              last updated: <Timestamp time={this.props.updated_at)} precision{3}/>
+            </small>  
           </div>
         </div>
       </React.Fragment>
